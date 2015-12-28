@@ -27,5 +27,8 @@ before_install:
   - cd ../../../..
 
 
+before_install:
+  - chmod +x build.sh
+ 
 script: 
   - ./build.sh All

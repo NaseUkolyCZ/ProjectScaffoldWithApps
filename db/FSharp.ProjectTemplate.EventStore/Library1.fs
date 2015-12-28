@@ -1,8 +1,13 @@
 ﻿namespace FSharp.ProjectTemplate.EventStore
 
-(* 
 module internal Utilities = 
 
+    open Logary
+    open EventStore.ClientAPI
+
+    let lm : (Logary.LogManager option ref) = ref None
+
+(** 
     let withConnection factory f =
       factory <| fun _ ->
         let conn =
@@ -15,4 +20,4 @@ module internal Utilities =
         conn |> Conn.connect |> Async.RunSynchronously
         try f conn
         finally conn |> Conn.close
-*)
+**)

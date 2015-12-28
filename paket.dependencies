@@ -3,6 +3,7 @@ source https://nuget.org/api/v2
 nuget Autofac.Configuration 4.0.0-beta8-262
 nuget Destructurama.FSharp
 nuget EventStore.Client.FSharp
+nuget EventStore.Client.PreRelease
 nuget Expression.Blend.Sdk
 nuget FSharp.Data
 nuget FSharp.Data.SqlClient
@@ -13,6 +14,7 @@ nuget FunScript
 nuget FunScript.TypeScript.Binding.jquery
 nuget FunScript.TypeScript.Binding.lib
 nuget jQuery
+nuget Logary
 nuget Microsoft.CodeDom.Providers.DotNetCompilerPlatform
 nuget Microsoft.Framework.Configuration.Json >= 1.0.0-beta8 prerelease
 nuget Microsoft.Net.Compilers
