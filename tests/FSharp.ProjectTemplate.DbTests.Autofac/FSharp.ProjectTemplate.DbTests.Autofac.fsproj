@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FSharp.ProjectTemplate.DbTests.Autofac</RootNamespace>
     <AssemblyName>FSharp.ProjectTemplate.DbTests.Autofac</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Name>FSharp.ProjectTemplate.DbTests.Autofac</Name>
@@ -20,7 +20,7 @@
     <Optimize>false</Optimize>
     <Tailcalls>false</Tailcalls>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Debug\FSharp.ProjectTemplate.DbTests.Autofac.XML</DocumentationFile>
   </PropertyGroup>
@@ -55,7 +55,8 @@
   </Target>
   -->
   <Target Name="AfterBuild">
-    <Exec Command="copy /y &quot;$(ProjectDir)App.config&quot; &quot;$(TargetDir)\$(TargetName).dll.config&quot;" />
+    <Exec Command="copy /y &quot;$(ProjectDir)App.config&quot; &quot;$(TargetDir)\$(TargetName).dll.config&quot;" Condition=" '$(OS)' != 'Unix' " />
+    <Exec Command="cp &quot;$(ProjectDir)App.config&quot; &quot;$(TargetDir)$(TargetName).dll.config&quot;" Condition=" '$(OS)' == 'Unix' " />
   </Target>
   <ItemGroup>
     <None Include="Script.fsx" />

@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>FSharp.ProjectTemplate.MUIApp</RootNamespace>
     <AssemblyName>FSharp.ProjectTemplate.MUIApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <Name>FSharp.ProjectTemplate.MUIApp</Name>
@@ -20,7 +20,7 @@
     <Optimize>false</Optimize>
     <Tailcalls>false</Tailcalls>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\FSharp.ProjectTemplate.MUIApp.XML</DocumentationFile>
@@ -178,15 +178,13 @@
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')">
       <ItemGroup>
-        <Reference Include="FsXaml.Wpf.TypeProvider">
+        <Reference Include="FsXaml.Wpf.TypeProvider" Condition="!($(DefineConstants.Contains('MONO')))">
           <HintPath>..\..\packages\FsXaml.Wpf\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
           <Private>True</Private>
-          <Paket>True</Paket>
         </Reference>
-        <Reference Include="FsXaml.Wpf">
+        <Reference Include="FsXaml.Wpf" Condition="!($(DefineConstants.Contains('MONO')))">
           <HintPath>..\..\packages\FsXaml.Wpf\lib\net45\FsXaml.Wpf.dll</HintPath>
           <Private>True</Private>
-          <Paket>True</Paket>
         </Reference>
         <Reference Include="PresentationCore">
           <Paket>True</Paket>

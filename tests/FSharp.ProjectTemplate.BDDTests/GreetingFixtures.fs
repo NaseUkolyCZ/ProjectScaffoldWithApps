@@ -4,6 +4,7 @@ open NUnit.Framework
 open System.IO
 open System.Reflection
 open TickSpec
+open System
 
 let assembly = Assembly.GetExecutingAssembly() 
 let definitions = new StepDefinitions(assembly)
@@ -19,7 +20,7 @@ type FeatureFixture (source:string) =
             raise (new IgnoreException("Ignored: " + scenario.Name))
         scenario.Action.Invoke()
     member this.Scenarios =
-        let s = File.OpenText(Path.Combine(@"..\..\",source))
+        let s = File.OpenText(Path.Combine(String.Format(@"..{0}..{0}", Path.DirectorySeparatorChar),source))
         definitions.GenerateScenarios(source,s)
 
 type Feature () = inherit FeatureFixture("GreetingFeature.txt")

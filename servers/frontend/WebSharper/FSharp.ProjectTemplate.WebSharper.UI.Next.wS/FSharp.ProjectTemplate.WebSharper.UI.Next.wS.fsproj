@@ -31,7 +31,7 @@
     <Name>FSharp.ProjectTemplate.WebSharper.UI.Next.wS</Name>
     <RootNamespace>FSharp.ProjectTemplate.WebSharper.UI.Next.wS</RootNamespace>
     <AssemblyName>FSharp.ProjectTemplate.WebSharper.UI.Next.wS</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <ItemGroup>

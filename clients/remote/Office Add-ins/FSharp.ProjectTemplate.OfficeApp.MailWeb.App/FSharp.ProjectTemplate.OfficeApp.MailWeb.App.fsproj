@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>FSharp.ProjectTemplate.OfficeApp.MailWeb.App</RootNamespace>
     <AssemblyName>FSharp.ProjectTemplate.OfficeApp.MailWeb.App</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <Name>FSharp.ProjectTemplate.OfficeApp.MailWeb.App</Name>
@@ -76,7 +76,7 @@
   </Target>
   -->
   <Target Name="AfterBuild">
-    <Exec Command="bin\$(Configuration)\FSharp.ProjectTemplate.OfficeApp.MailWeb.App.exe" />
+    <Exec Command="bin\$(Configuration)\FSharp.ProjectTemplate.OfficeApp.MailWeb.App.exe" Condition=" '$(OS)' != 'Unix' " />
   </Target>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')">

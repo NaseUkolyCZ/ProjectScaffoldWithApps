@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FSharp.ProjectTemplate.DbTests.SqlClient</RootNamespace>
     <AssemblyName>FSharp.ProjectTemplate.DbTests.SqlClient</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Name>FSharp.ProjectTemplate.DbTests.SqlClient</Name>
@@ -57,12 +57,13 @@
   </Target>
   -->
   <Target Name="AfterBuild">
-    <Exec Command="copy /y &quot;$(ProjectDir)App.config&quot; &quot;$(TargetDir)\$(TargetName).dll.config&quot;" />
+    <Exec Command="copy /y &quot;$(ProjectDir)App.config&quot; &quot;$(TargetDir)\$(TargetName).dll.config&quot;" Condition=" '$(OS)' != 'Unix' " />
+    <Exec Command="cp &quot;$(ProjectDir)app.config&quot; &quot;$(TargetDir)$(TargetName).dll.config&quot;" Condition=" '$(OS)' == 'Unix' " />
   </Target>
   <ItemGroup>
     <Compile Include="SqlClientTests.fs" />
     <None Include="Script.fsx" />
-    <Content Include="App.config" />
+    <Content Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

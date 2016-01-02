@@ -1,4 +1,8 @@
-﻿open System
+﻿#if MONO
+let main argv = 
+  ()
+#else
+open System
 open FsXaml
 
 type App = XAML<"App.xaml">
@@ -7,3 +11,4 @@ type App = XAML<"App.xaml">
 [<EntryPoint>]
 let main argv = 
     App().Root.Run()
+#endif

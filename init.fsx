@@ -20,10 +20,14 @@ let failfUnlessExists f msg p = if not <| File.Exists f then failwithf msg p
 let combine p1 p2 = Path.Combine(p2, p1)
 let move p1 p2 =
   if File.Exists p1 then
+#if VERBOSE
     printfn "moving %s to %s" p1 p2
+#endif
     File.Move(p1, p2)
   elif Directory.Exists p1 then
+#if VERBOSE
     printfn "moving directory %s to %s" p1 p2
+#endif
     Directory.Move(p1, p2)
   else
     failwithf "Could not move %s to %s" p1 p2
@@ -170,7 +174,9 @@ let replaceContent file =
   |> replaceWithVarOrMsg "##Tags##" ""
   |> replaceWithVarOrMsg "##GitHome##" "[github-user]"
   |> overwrite file
+#if VERBOSE
   |> sprintf "%s updated"
+#endif
 
 let rec filesToReplace dir = seq {
   yield! Directory.GetFiles(dir, "*.?sproj")

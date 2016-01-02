@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FSharp.ProjectTemplate.BDDTests</RootNamespace>
     <AssemblyName>FSharp.ProjectTemplate.BDD.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Name>FSharp.ProjectTemplate.BDD.Tests</Name>
@@ -57,13 +57,13 @@
   </Target>
   -->
   <ItemGroup>
-    <Compile Include="Fixtures.fs">
-      <Paket>True</Paket>
+    <Compile Include="GreetingFixtures.fs">
     </Compile>
     <None Include="Script.fsx" />
     <Content Include="App.config" />
     <Compile Include="GreetingStepDefinitions.fs" />
     <Content Include="GreetingFeature.txt" />
+    <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

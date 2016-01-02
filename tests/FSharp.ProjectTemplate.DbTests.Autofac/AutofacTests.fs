@@ -3,6 +3,7 @@
 open NUnit.Framework
 open Serilog
 open System
+open System.Threading
 
 module Setup=
     let runningOnAppveyor =
@@ -31,6 +32,9 @@ module Tests =
         let a = FSharp.ProjectTemplate.NMemory.Impl.Database()
         Assert.IsNotNull(a)
 
+#if MONO
+    [<Ignore("Not working on Mono now")>]
+#endif
     [<Test>]
     let ``simple database crud is working`` () =
         Log.Information( "Test entered" )

@@ -1,5 +1,7 @@
 ﻿namespace FSharp.ProjectTemplate.Suave
 
+#if !MONO
+
 module Program =
 
     open System
@@ -25,8 +27,6 @@ module Program =
 
     open Serilog
     open Orleans.Serialization
-
-    open JsonSerializer
 
     open FSharp.ProjectTemplate.Domain
 
@@ -122,3 +122,5 @@ module Program =
 
       startWebServer defaultConfig app
       0 
+
+#endif

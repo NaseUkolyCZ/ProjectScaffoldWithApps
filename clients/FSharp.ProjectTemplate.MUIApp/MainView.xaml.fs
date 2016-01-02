@@ -1,6 +1,8 @@
 ﻿namespace FSharp.ProjectTemplate.MUIApp.Views
 
+#if !MONO
 open FsXaml
+
 
 type MainView = XAML<"MainView.xaml", true>
 
@@ -21,3 +23,4 @@ type MainViewController() =
         |> this.DisposeOnUnload
         
 
+#endif
